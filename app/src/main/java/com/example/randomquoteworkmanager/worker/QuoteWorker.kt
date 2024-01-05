@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 class QuoteWorker(private  val context: Context, params: WorkerParameters) : Worker(context,params) {
     override fun doWork(): Result {
         Log.d("WorkManagerTest","Worker Called")
-        
+
         val repository=(context as QuoteApplication).quoteRepository
         CoroutineScope(Dispatchers.IO).launch {
             repository.getQuotesBackground()
